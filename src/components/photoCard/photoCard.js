@@ -4,8 +4,8 @@ import { gql } from "apollo-boost";
 import List from "./list";
 
 const query = graphql(gql`
-  query getPhotos {
-      photos {
+  query getPhotos($categoryId: ID) {
+      photos(categoryId: $categoryId) {
           id
           categoryId
           src

@@ -59,7 +59,7 @@ const Card = (props) => {
             {
                 show && (
                     <>
-                        <a href={`/detail/${id}`}>
+                        <a href={`?detail=${id}`}>
                             <ImageWrapper>
                                 <Image src={src} alt={`Imagen número ${id}`} />
                             </ImageWrapper>
