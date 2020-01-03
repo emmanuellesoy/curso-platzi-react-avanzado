@@ -1,12 +1,10 @@
-import Category from "./category";
-import List from "./list";
+import Categories from "./categories";
 import Logo from "./logo";
 
-import * as PhotoCard from "./photoCard";
+import PhotoCard from "./photoCard";
 
 export {
-    Category,
-    List,
+    Categories,
     Logo,
     PhotoCard
 };

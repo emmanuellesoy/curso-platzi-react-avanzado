@@ -75,13 +75,12 @@ const Card = (props) => {
 };  
 
 Card.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string.isRequired,
     likes: PropTypes.number,
     src: PropTypes.string,
 };
 
 Card.defaultProps = {
-    id: 0,
     likes: 0,
     src: "https://picsum.photos/500",
 };

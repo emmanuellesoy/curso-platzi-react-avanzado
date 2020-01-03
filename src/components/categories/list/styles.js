@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from "styled-components";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const scaleDown = keyframes`
     from {
@@ -8,16 +7,6 @@ const scaleDown = keyframes`
     to {
       transform: scale(0.5);
     }
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 `;
 
 const scale = ({time = "1s", type = "ease"} = {}) => css`animation: ${time} ${scaleDown} ${type}`;
@@ -47,21 +36,7 @@ const Li = styled.li`
   padding: 0 8px;
 `;
 
-const LoadingWrapper = styled.div`
-  display: flex;
-  overflow: scroll;
-  width: 100%;
-`;
-
-const Loading = styled(AiOutlineLoading3Quarters)`
-  color: #000;
-  margin: 0 auto;
-  animation: ${rotate} 2s linear infinite;
-`;
-
 export {
     Ul,
     Li,
-    LoadingWrapper,
-    Loading,
 };

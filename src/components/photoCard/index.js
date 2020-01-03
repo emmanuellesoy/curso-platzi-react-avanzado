@@ -1,7 +1,3 @@
-import Card from "./card";
-import List from "./list";
+import PhotoCard from "./photoCard";
 
-export {
-    Card,
-    List,
-};
+export default PhotoCard;
