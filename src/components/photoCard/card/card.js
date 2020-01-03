@@ -1,7 +1,7 @@
-/* global window, */
+/* global window */
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import {
     Button,
@@ -19,6 +19,14 @@ const Card = (props) => {
     
     const element = useRef(null);
     const [ show, setShow ] = useState(false);
+    const [ like, setLike ] = useState(() => {
+        try {
+            const isLiked = window.localStorage.getItem(`like-${id}`);
+            return isLiked;
+        } catch (e) {
+            return false;
+        }
+    });
     
     useEffect(() => {
         Promise.resolve(
@@ -34,6 +42,18 @@ const Card = (props) => {
         });
     }, [element]);
     
+    const Like = (like) ? FaHeart : FaRegHeart;
+    
+    const saveLike = value => {
+        try {
+            window.localStorage.setItem(`like-${id}`, value);
+            setLike(value);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    };
+    
     return (
         <Wrapper ref={element}>
             {
@@ -44,15 +64,15 @@ const Card = (props) => {
                                 <Image src={src} alt={`Imagen número ${id}`} />
                             </ImageWrapper>
                         </a>
-                        <Button type="button">
-                            <FaRegHeart size="16" />{likes}
+                        <Button type="button" onClick={() => saveLike(!like)}>
+                            <Like size="16" />{likes}
                         </Button>
                     </>
                 )
             }
         </Wrapper>
     );
-};
+};  
 
 Card.propTypes = {
     id: PropTypes.number,
