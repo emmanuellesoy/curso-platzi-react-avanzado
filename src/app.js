@@ -4,8 +4,9 @@ import React from "react";
 import GlobalStyles from "./globalStyles";
 import {
     Categories,
+    PhotoCard,
     Logo,
-    PhotoCard
+    Wall
 } from "./components";
 
 const App = () => {
@@ -16,14 +17,16 @@ const App = () => {
         <>
             <GlobalStyles />
             <Logo />
-            <Categories />
             {
                 (detail)
                     ? (
-                        <h1>Detail: {detail}</h1>
+                        <PhotoCard id={detail} />
                     )
                     : (
-                        <PhotoCard categoryId={1} />
+                        <>
+                            <Categories />
+                            <Wall />
+                        </>
                     )
             }
         </>

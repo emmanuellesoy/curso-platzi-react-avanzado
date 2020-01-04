@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { A, Img } from "./styles";
+import { A, EmojiContainer, Img } from "./styles";
 
 const Category = props => {
     const { cover, emoji, path } = props;
     return (
         <A href={path}>
             <Img src={cover} alt="Category cover" />
-            {emoji}
+            <EmojiContainer>
+                {emoji}
+            </EmojiContainer>
         </A>
     );
 };

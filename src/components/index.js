@@ -1,10 +1,11 @@
 import Categories from "./categories";
 import Logo from "./logo";
-
-import PhotoCard from "./photoCard";
+import PhotoCard from "./photCard";
+import Wall from "./wall";
 
 export {
     Categories,
     Logo,
-    PhotoCard
+    Wall,
+    PhotoCard,
 };

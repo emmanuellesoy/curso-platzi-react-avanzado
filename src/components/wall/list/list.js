@@ -25,7 +25,7 @@ const List = (props) => {
                     )
                     : (
                         <Loading.Wrapper>
-                            <Loading.Spinner size="45" />
+                            <Loading.Spinner size="320" />
                         </Loading.Wrapper>
                     )
             }

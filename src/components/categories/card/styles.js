@@ -8,6 +8,10 @@ const A = styled.a`
   width: 75px;
 `;
 
+const EmojiContainer = styled.div`
+  margin: 10px;
+`;
+
 const Img = styled.img`
   text-decoration: none;
   box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.2);
@@ -18,4 +22,9 @@ const Img = styled.img`
   width: 75px;
 `;
 
-export { A, Img };
+
+export {
+    A,
+    EmojiContainer,
+    Img,
+};
