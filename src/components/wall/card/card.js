@@ -1,14 +1,15 @@
 /* global window */
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import {
-    Button,
     Image,
     ImageWrapper,
     Wrapper,
 } from "./styles";
+
+import Like from "./like";
+import ToggleLike from "./toggleLike";
 
 const Card = (props) => {
     const {
@@ -22,7 +23,7 @@ const Card = (props) => {
     const [ like, setLike ] = useState(() => {
         try {
             const isLiked = window.localStorage.getItem(`like-${id}`);
-            return isLiked;
+            return Boolean(isLiked);
         } catch (e) {
             return false;
         }
@@ -41,8 +42,6 @@ const Card = (props) => {
             observer.observe(element.current);
         });
     }, [element]);
-    
-    const Like = (like) ? FaHeart : FaRegHeart;
     
     const saveLike = value => {
         try {
@@ -64,9 +63,25 @@ const Card = (props) => {
                                 <Image src={src} alt={`Imagen número ${id}`} />
                             </ImageWrapper>
                         </a>
-                        <Button type="button" onClick={() => saveLike(!like)}>
-                            <Like size="16" />{likes}
-                        </Button>
+                        <ToggleLike>
+                            {
+                                (toggleLike) => {
+                                    const handleLike = () => {
+                                        if (!like) {
+                                            toggleLike({
+                                                variables: {
+                                                    input: { id }
+                                                }
+                                            });
+                                        };
+                                        saveLike(!like);
+                                    };
+                                    return (
+                                        <Like like={like} likes={likes} onClick={handleLike} />
+                                    );
+                                }
+                            }
+                        </ToggleLike>
                     </>
                 )
             }
