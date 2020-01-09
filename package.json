@@ -4,6 +4,7 @@
         "url": "https://github.com/sh4nn0nb1t/curso-platzi-react-avanzado/issues"
     },
     "dependencies": {
+        "@reach/router": "^1.2.1",
         "apollo-boost": "^0.4.7",
         "graphql": "^14.5.8",
         "intersection-observer": "^0.7.0",
@@ -46,7 +47,7 @@
     },
     "scripts": {
         "build": "webpack",
-        "dev": "webpack-dev-server",
+        "dev": "webpack-dev-server --history-api-fallback",
         "now-build": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

@@ -33,7 +33,7 @@ const List = (props) => {
                             <Li key={category.id}>
                                 <Card
                                     emoji={category.emoji}
-                                    path={category.path}
+                                    path={`/category/${category.id}`}
                                     cover={category.cover}
                                 />
                             </Li>

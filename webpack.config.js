@@ -2,7 +2,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
     output: {
-        filename: "app.bundle.js"
+        filename: "app.bundle.js",
+        publicPath: "/",
     },
     plugins: [
         new HtmlWebpackPlugin({

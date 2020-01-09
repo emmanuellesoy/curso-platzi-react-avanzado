@@ -1,13 +1,14 @@
 /* global window */
 import React from "react";
+import { Router } from "@reach/router";
 
 import GlobalStyles from "./globalStyles";
 import {
-    Categories,
     PhotoCard,
     Logo,
-    Wall
 } from "./components";
+
+import { Home } from "./pages";
 
 const App = () => {
     const urlParams = new window.URLSearchParams(window.location.search);
@@ -23,10 +24,10 @@ const App = () => {
                         <PhotoCard id={detail} />
                     )
                     : (
-                        <>
-                            <Categories />
-                            <Wall />
-                        </>
+                        <Router>
+                            <Home path="/" />
+                            <Home path="/category/:categoryId" />
+                        </Router>
                     )
             }
         </>
