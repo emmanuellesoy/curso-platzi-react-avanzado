@@ -5,6 +5,7 @@ import { Router } from "@reach/router";
 import GlobalStyles from "./globalStyles";
 import {
     Logo,
+    NavBar,
 } from "./components";
 
 import {
@@ -21,6 +22,7 @@ const App = () => (
                 <Home path="/category/:categoryId" />
                 <Detail path="detail/:id" />
             </Router>
+        <NavBar />
     </>
 );
 
