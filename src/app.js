@@ -10,8 +10,15 @@ import {
 
 import {
     Detail,
-    Home
+    Favorites,
+    Forbidden,
+    Home,
+    Profile,
 } from "./pages";
+
+const Auth = ({ children }) => {
+    return children({ isAuth: false });
+};
 
 const App = () => (
     <>
@@ -22,6 +29,25 @@ const App = () => (
                 <Home path="/category/:categoryId" />
                 <Detail path="detail/:id" />
             </Router>
+            <Auth>
+                {
+                    ({ isAuth }) => (
+                        isAuth
+                        ? (
+                            <Router>
+                                <Favorites path="/favs" />
+                                <Profile path="/user" />
+                            </Router>
+                        )
+                        : (
+                            <Router>
+                                <Forbidden path="/favs" />
+                                <Forbidden path="/user" />
+                            </Router>
+                        )
+                    )
+                }
+            </Auth>
         <NavBar />
     </>
 );
