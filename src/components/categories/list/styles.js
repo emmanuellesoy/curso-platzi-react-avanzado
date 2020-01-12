@@ -1,15 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
-
-const scaleDown = keyframes`
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(0.5);
-    }
-`;
-
-const scale = ({time = "1s", type = "ease"} = {}) => css`animation: ${time} ${scaleDown} ${type}`;
+import { scale } from "../../../styles/animations";
 
 const Ul = styled.ul`
   display: flex;
@@ -27,7 +17,7 @@ const Ul = styled.ul`
     right: 0;
     top: -20;
     transform: scale(0.5);
-    ${scale}
+    ${scale()}
     z-index: 1;
   `}
 `;

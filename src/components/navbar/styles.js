@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "@reach/router";
+import { fadeIn } from "../../styles/animations";
 
 const NavivagtionBar = styled.nav`
     align-items: center;
@@ -25,6 +26,17 @@ const A = styled(Link)`
     justify-content: center;
     text-decoration: none;
     width: 100%;
+    &[aria-current] {
+        color: #000;
+        ${fadeIn({ time: "0.5s" })};
+        &:after {
+            content: "·";
+            position: absolute;
+            bottom: 0;
+            font-size: 34px;
+            line-height: 20px;
+        }
+    }
 `;
 
 export {

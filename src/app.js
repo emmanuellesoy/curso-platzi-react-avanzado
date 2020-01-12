@@ -2,7 +2,7 @@
 import React from "react";
 import { Router } from "@reach/router";
 
-import GlobalStyles from "./globalStyles";
+import GlobalStyles from "./styles/globalStyles";
 import {
     Logo,
     NavBar,

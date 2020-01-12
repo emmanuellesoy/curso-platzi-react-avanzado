@@ -1,17 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
-
-const fadeInBlur = keyframes`
-    from {
-      filter: blur(5px);
-      opacity: 0;
-    }
-    to {
-      filter: blur(0);
-      opacity: 1;
-    }
-`;
-
-const fadeIn = ({time = "1s", type = "ease"} = {}) => css`animation: ${time} ${fadeInBlur} ${type}`;
+import styled from "styled-components";
+import { fadeIn } from "../../../styles/animations";
 
 const Image = styled.img`
   ${fadeIn()}
