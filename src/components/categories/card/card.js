@@ -6,7 +6,7 @@ import { A, EmojiContainer, Img } from "./styles";
 const Category = props => {
     const { cover, emoji, path } = props;
     return (
-        <A href={path}>
+        <A to={path}>
             <Img src={cover} alt="Category cover" />
             <EmojiContainer>
                 {emoji}
@@ -24,7 +24,7 @@ Category.propTypes = {
 Category.defaultProps = {
     cover: "https://picsum.photos/75",
     emoji: "?",
-    path: "",
+    path: "/",
 };
 
 export default Category;
