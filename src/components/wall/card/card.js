@@ -1,6 +1,7 @@
 /* global window */
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "@reach/router";
 
 import {
     Image,
@@ -30,17 +31,12 @@ const Card = (props) => {
     });
     
     useEffect(() => {
-        Promise.resolve(
-            typeof window.IntersectionObserver !== "undefined"
-                ? window.IntersectionObserver
-                : import("intersection-observer")
-        ).then(() => {
-            const observer = new window.IntersectionObserver((entries) => {
-                const { isIntersecting } = entries[0];
-                setShow(isIntersecting);
-            });
-            observer.observe(element.current);
+        const observer = new window.IntersectionObserver((entries) => {
+            const { isIntersecting } = entries[0];
+            setShow(isIntersecting);
         });
+        observer.observe(element.current);
+        return () => observer.unobserve(element.current);
     }, [element]);
     
     const saveLike = value => {
@@ -58,11 +54,11 @@ const Card = (props) => {
             {
                 show && (
                     <>
-                        <a href={`?detail=${id}`}>
+                        <Link to={`/detail/${id}`}>
                             <ImageWrapper>
                                 <Image src={src} alt={`Imagen número ${id}`} />
                             </ImageWrapper>
-                        </a>
+                        </Link>
                         <ToggleLike>
                             {
                                 (toggleLike) => {

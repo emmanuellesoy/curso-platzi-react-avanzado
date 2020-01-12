@@ -54,7 +54,11 @@ const PhotoCard = (props) => {
 };
 
 PhotoCard.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
+};
+
+PhotoCard.defaulProps = {
+    id: "0",
 };
 
 export default PhotoCard;
